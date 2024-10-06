@@ -180,7 +180,7 @@ const Contact = () => {
                 >
                   <option value="">Select a service</option>
                   <option value="naac">NAAC</option>
-                  <option value="nab">NAB</option>
+                  <option value="nba">NBA</option>
                   <option value="nirf">NIRF</option>
                   <option value="foreignAccreditation">Foreign Accreditation</option>
                   <option value="mockInspection">Mock Inspection</option>
