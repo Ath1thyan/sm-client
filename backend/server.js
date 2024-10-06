@@ -4,8 +4,8 @@ const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 require('dotenv').config();
-const dbUri = 'mongodb+srv://hariraja24cs:ABCdef123@cluster0.5ftive4.mongodb.net/yourdbname?retryWrites=true&w=majority&appName=Cluster0';
 
+const dbUri = process.env.MONGODB_URI;
 
 const app = express();
 app.use(cors());
