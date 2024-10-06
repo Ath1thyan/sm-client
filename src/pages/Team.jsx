@@ -3,7 +3,7 @@ import { Card, Button } from 'antd';
 import { FaPhone, FaEnvelope, FaGlobe, FaHome } from 'react-icons/fa';
 import Layout from '../components/Layout';
 import logo from '../assets/mi.jpg'; // Ensure to use the correct path
-
+const backendUrl = 'https://backend-qzdy.onrender.com';
 // Sample team member data
 
 
@@ -53,7 +53,7 @@ const Team = () => {
 
   useEffect(() => {
     const fetchTeam = async () => {
-      const response = await fetch('http://localhost:5000/api/team-members');
+      const response = await fetch(`${backendUrl}/api/team-members`);
 
       if (response.ok) {
         const data = await response.json();

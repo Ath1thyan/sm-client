@@ -5,6 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaPhone, FaEnvelope, FaHome, FaGlobe } from "react-icons/fa";
 import logo from '../assets/mi.jpg';
+const backendUrl = 'https://backend-qzdy.onrender.com';
 
 const TeamMembers = () => {
     const [members, setMembers] = useState([]);
@@ -26,7 +27,7 @@ const TeamMembers = () => {
     }, []);
 
     const fetchMembers = async () => {
-        const response = await fetch('http://localhost:5000/api/team-members');
+        const response = await fetch(`${backendUrl}/api/team-members`);
         if (response.ok) {
             const data = await response.json();
             setMembers(data);
@@ -41,7 +42,7 @@ const TeamMembers = () => {
 
     const handleAddSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost:5000/api/team-members', {
+        const response = await fetch(`${backendUrl}/api/team-members`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +64,7 @@ const TeamMembers = () => {
         e.preventDefault();
         console.log("Editing member with data: ", form); // Log the form data
     
-        const response = await fetch(`http://localhost:5000/api/team-members/${form.id}`, {
+        const response = await fetch(`${backendUrl}/api/team-members/${form.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -98,7 +99,7 @@ const TeamMembers = () => {
     };
 
     const handleDelete = async (id) => {
-        const response = await fetch(`http://localhost:5000/api/team-members/${id}`, { method: 'DELETE' });
+        const response = await fetch(`${backendUrl}/api/team-members/${id}`, { method: 'DELETE' });
         if (response.ok) {
             message.success('Team member deleted successfully');
             fetchMembers();

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { HiOutlineMail, HiPhone, HiLocationMarker } from 'react-icons/hi';
 import Layout from '../components/Layout';
-
+const backendUrl = 'https://backend-qzdy.onrender.com';
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -39,7 +39,7 @@ const Contact = () => {
     }
   
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch(`${backendUrl}/api/contact`, {
         method: 'POST',
         body: formDataToSend, // Use the renamed FormData
       });

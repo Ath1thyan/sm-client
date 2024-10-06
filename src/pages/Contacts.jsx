@@ -1,12 +1,12 @@
 import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
-
+const backendUrl = 'https://backend-qzdy.onrender.com';
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
     const fetchContacts = async () => {
-      const response = await fetch('http://localhost:5000/api/contacts');
+      const response = await fetch(`${backendUrl}/api/contacts`);
 
       if (response.ok) {
         const data = await response.json();
