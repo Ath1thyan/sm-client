@@ -50,9 +50,6 @@ const Layout = ({ children }) => {
                     <Link to="/contact" className={`px-2 py-1 ${getActiveClass('/contact')}`}>
                         Contact
                     </Link>
-                    <Link to="/adminDash" className={`px-2 py-1 ${getActiveClass('/adminDash')}`}>
-                        Admin
-                    </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -115,13 +112,6 @@ const Layout = ({ children }) => {
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
                         Contact
-                    </Link>
-                    <Link
-                        to="/adminDash"
-                        className={`block px-4 py-2 ${getActiveClass('/adminDash')}`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        Admin
                     </Link>
 
                 </div>
