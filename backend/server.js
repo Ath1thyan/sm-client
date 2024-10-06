@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
+require('dotenv').config();
+const dbUri = 'mongodb+srv://hariraja24cs:ABCdef123@cluster0.5ftive4.mongodb.net/yourdbname?retryWrites=true&w=majority&appName=Cluster0';
+
 
 const app = express();
 app.use(cors());
@@ -24,7 +27,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-mongoose.connect('mongodb://localhost:27017/yourdbname');
+//const mongoDBUri = 'mongodb+srv://hariraja24cs:ABCdef123%23@cluster0.5ftive4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(dbUri)
+  .then(() => console.log('MongoDB connected!'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 
 // Define schemas
 const contactSchema = new mongoose.Schema({
