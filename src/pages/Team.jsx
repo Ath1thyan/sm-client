@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { Card, Button } from 'antd';
 import { FaPhone, FaEnvelope, FaGlobe, FaHome } from 'react-icons/fa';
 import Layout from '../components/Layout';
 import logo from '../assets/mi.jpg'; // Ensure to use the correct path
 
 // Sample team member data
+
+
 const teamMembers = [
   {
     id: 1,
@@ -46,12 +48,30 @@ const teamMembers = [
 ];
 
 const Team = () => {
+
+  const [team, setTeam] = useState([]);
+
+  useEffect(() => {
+    const fetchTeam = async () => {
+      const response = await fetch('http://localhost:5000/api/team-members');
+
+      if (response.ok) {
+        const data = await response.json();
+        setTeam(data);
+      } else {
+        message.error('Failed to fetch Team members');
+      }
+    };
+
+    fetchTeam();
+  }, []);
+  
   return (
     <Layout>
       <div className="py-8">
         <h1 className="text-4xl font-bold text-center mb-8 text-blue-700">Meet Our Team</h1>
         <div className="flex justify-center flex-wrap gap-8 ">
-          {teamMembers.map((member) => (
+          {team.map((member) => (
             <Card
               key={member.id}
               className="shadow-xl border border-blue-300 rounded-lg overflow-hidden transition-transform transform hover:scale-105 bg-blue-300" // Added hover scale effect
@@ -60,7 +80,7 @@ const Team = () => {
               <div className="flex flex-col items-center p-4">
                 <img 
                   alt={member.name} 
-                  src={member.profilePic} 
+                  src={logo} 
                   className="w-24 h-24 object-cover rounded-full border-0 border-white shadow-md mb-4" // Rounded profile picture with border and shadow
                 />
                 <h2 className="text-xl font-bold text-black">{`${member.salutation} ${member.name}`}</h2>
