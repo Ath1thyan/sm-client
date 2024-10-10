@@ -10,17 +10,12 @@ const Contact = () => {
     phone: '',
     service: '',
     message: '',
-    file: null,
   });
   const [submitStatus, setSubmitStatus] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  };
-
-  const handleFileChange = (e) => {
-    setFormData({ ...formData, file: e.target.files[0] });
   };
 
   const handleSubmit = async (e) => {
@@ -34,9 +29,6 @@ const Contact = () => {
     formDataToSend.append('phone', formData.phone);
     formDataToSend.append('service', formData.service);
     formDataToSend.append('message', formData.message);
-    if (formData.file) {
-      formDataToSend.append('file', formData.file);
-    }
   
     try {
       const response = await fetch(`${backendUrl}/api/contact`, {
@@ -53,7 +45,6 @@ const Contact = () => {
           phone: '',
           service: '',
           message: '',
-          file: null,
         });
       } else {
         throw new Error('Submission failed.');
@@ -201,17 +192,6 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 rows="4"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="file">File Upload (optional)</label>
-              <input
-                type="file"
-                id="file"
-                name="file"
-                onChange={handleFileChange}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
               />
             </div>
