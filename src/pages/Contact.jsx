@@ -20,44 +20,49 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    // Rename the FormData variable to avoid collision
-    const formDataToSend = new FormData();
-    formDataToSend.append('fullName', formData.fullName);
-    formDataToSend.append('institutionName', formData.institutionName);
-    formDataToSend.append('email', formData.email);
-    formDataToSend.append('phone', formData.phone);
-    formDataToSend.append('service', formData.service);
-    formDataToSend.append('message', formData.message);
-  
+
+    // Prepare the data to be sent as JSON
+    const formDataToSend = {
+        fullName: formData.fullName,
+        institutionName: formData.institutionName,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message,
+    };
+
     try {
-      const response = await fetch(`${backendUrl}/api/contact`, {
-        method: 'POST',
-        body: formDataToSend, // Use the renamed FormData
-      });
-  
-      if (response.ok) {
-        setSubmitStatus('Submitted successfully!');
-        setFormData({
-          fullName: '',
-          institutionName: '',
-          email: '',
-          phone: '',
-          service: '',
-          message: '',
+        const response = await fetch(`${backendUrl}/api/contact`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',  // Set Content-Type to application/json
+            },
+            body: JSON.stringify(formDataToSend),  // Convert the data to JSON format
         });
-      } else {
-        throw new Error('Submission failed.');
-      }
+
+        if (response.ok) {
+            setSubmitStatus('Submitted successfully!');
+            setFormData({
+                fullName: '',
+                institutionName: '',
+                email: '',
+                phone: '',
+                service: '',
+                message: '',
+            });
+        } else {
+            throw new Error('Submission failed.');
+        }
     } catch (error) {
-      setSubmitStatus('Error submitting form. Please try again.');
+        setSubmitStatus('Error submitting form. Please try again.');
     }
-  
+
     // Hide the popup after 3 seconds
     setTimeout(() => {
-      setSubmitStatus('');
+        setSubmitStatus('');
     }, 3000);
-  };
+};
+
   
   return (
     <Layout>
