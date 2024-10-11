@@ -77,11 +77,11 @@ const Contact = () => {
             <div className="bg-blue-50 p-6 rounded-lg shadow-md">
               <p className="flex items-center text-gray-700 mb-2">
                 <HiOutlineMail className="mr-2 text-blue-600" />
-                <strong>Email:</strong> info@yourcompany.com
+                <strong>Email:</strong> smeduconsultant@gmail.com
               </p>
               <p className="flex items-center text-gray-700 mb-2">
                 <HiPhone className="mr-2 text-blue-600" />
-                <strong>Phone:</strong> +1 (234) 567-8900
+                <strong>Phone:</strong> +91 9597203784 / 9245664761
               </p>
               <p className="flex items-center text-gray-700 mb-2">
                 <HiLocationMarker className="mr-2 text-blue-600" />
