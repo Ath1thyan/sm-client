@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa'; // Import social media icons
-import logo from '../assets/img1.png'; // Make sure this path is correct
+const backendUrl = "https://backend-qzdy.onrender.com";
+import axios from "axios";
 
 const Layout = ({ children }) => {
+    const [logo, setLogo] = useState({
+        image: "",
+      });
     const location = useLocation();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    useEffect(() => {
+        const fetchData = async () => {
+          const logoResponse = await axios.get(
+            `${backendUrl}/api/logo`
+          );
+    
+          setLogo(logoResponse.data);
+        };
+    
+        fetchData();
+      }, []);
     // Helper function to get the active class
     const getActiveClass = (path) => {
         return location.pathname === path
@@ -22,7 +37,7 @@ const Layout = ({ children }) => {
                 <div className="flex items-center space-x-4">
                     {/* Logo */}
                     <div className="relative w-20 h-20 bg-white rounded-full shadow-md overflow-hidden flex items-center justify-center transform transition-transform duration-300 hover:scale-110">
-                        <img src={logo} alt="SM-Ed-Consultant" className="h-16 w-16 object-contain" />
+                        <img src={`${backendUrl}/${logo.image}`} alt="SM-Ed-Consultant" className="h-16 w-16 object-contain" />
                     </div>
                     {/* Company Name */}
                     <span className="text-lg font-extrabold text-white bg-clip-text text-transparent bg-white tracking-wider drop-shadow-md">
