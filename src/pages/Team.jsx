@@ -4,48 +4,6 @@ import { FaPhone, FaEnvelope, FaGlobe, FaHome } from 'react-icons/fa';
 import Layout from '../components/Layout';
 import logo from '../assets/mi.jpg'; // Ensure to use the correct path
 const backendUrl = 'https://backend-qzdy.onrender.com';
-// Sample team member data
-
-
-const teamMembers = [
-  {
-    id: 1,
-    name: 'John Doe',
-    salutation: 'Mr.',
-    designation: 'Senior Consultant',
-    degrees: 'M.A., PhD',
-    mobile: '+1 234 567 890',
-    email: 'john.doe@example.com',
-    address: '123 Education Lane, Knowledge City, USA',
-    website: 'https://johnswebsite.com',
-    profilePic: logo, // Use the imported logo as the profile picture
-  },
-  {
-    id: 2,
-    name: 'Jane Smith',
-    salutation: 'Ms.',
-    designation: 'Academic Advisor',
-    degrees: 'M.Sc., MBA',
-    mobile: '+1 234 567 891',
-    email: 'jane.smith@example.com',
-    address: '456 Knowledge Blvd, Knowledge City, USA',
-    website: 'https://janeswebsite.com',
-    profilePic: logo, // Use the imported logo as the profile picture
-  },
-  {
-    id: 3,
-    name: 'H.B.Michael Rajan',
-    salutation: 'Prof.',
-    designation: 'Business Development',
-    degrees: 'M.E., M.S(Edu.Mgt)., Ph.D',
-    mobile: '+91 95972 03784, +91 92456 64761',
-    email: 'smeduconsultant@gmail.com',
-    address: 'No.4, Ramani Nagar, Kadappa Road, Kolathur, Chennai - 600099',
-    website: 'https://www.smeduconsultant.com',
-    profilePic: logo, // Use the imported logo as the profile picture
-  },
-  // Add more team members as needed
-];
 
 const Team = () => {
 

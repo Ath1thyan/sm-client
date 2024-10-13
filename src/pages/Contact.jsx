@@ -32,7 +32,7 @@ const Contact = () => {
     };
 
     try {
-        const response = await fetch(`${backendUrl}/api/contact`, {
+        const response = await fetch(`${backendUrl}/api/contacts`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',  // Set Content-Type to application/json
@@ -85,7 +85,7 @@ const Contact = () => {
               </p>
               <p className="flex items-center text-gray-700 mb-2">
                 <HiLocationMarker className="mr-2 text-blue-600" />
-                <strong>Address:</strong> 123 Main St, Anytown, USA
+                <strong>Address:</strong> No.4, Ramani Nagar, Kadappa Road, Kolathur, Chennai - 600099
               </p>
             </div>
           </div>
@@ -95,7 +95,7 @@ const Contact = () => {
             <h2 className="text-2xl font-semibold text-blue-600 mb-4">Our Location</h2>
             <div className="w-full h-64 rounded-lg overflow-hidden shadow-md">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509174!2d144.95373631532055!3d-37.81720997975148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0c09b3c9%3A0x5019f28d9f3bb3e!2sMelbourne%20CBD%2C%20Victoria%2C%20Australia!5e0!3m2!1sen!2sus!4v1618313573585!5m2!1sen!2sus"
+                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=13.130095,%2080.208825+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

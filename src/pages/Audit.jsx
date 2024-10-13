@@ -50,7 +50,7 @@ const Audit = () => {
             return (
               <div key={img._id}>
                 <img
-                  src={`${backendUrl}/${img.image}`}
+                  src={img.image}
                   alt={`Slide ${img._id + 1}`}
                   className="w-full h-64 object-cover"
                 />
@@ -63,7 +63,7 @@ const Audit = () => {
           <section className="flex flex-col md:flex-row items-center bg-blue-100 p-8 border-0 rounded-sm">
             <div className="flex-shrink-0 mb-6 md:mb-0 md:w-1/2">
               <img
-                src={`${backendUrl}/${auditHero.image}`}
+                src={auditHero.image}
                 alt={auditHero.title}
                 className="w-full h-auto rounded-lg shadow-md"
               />

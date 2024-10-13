@@ -52,7 +52,7 @@ const Home = () => {
             return (
               <div key={img._id}>
                 <img
-                  src={`${backendUrl}/${img.image}`}
+                  src={img.image}
                   alt={`Slide ${img._id + 1}`}
                   className="w-full h-64 object-cover"
                 />
@@ -96,7 +96,7 @@ const Home = () => {
                     cover={
                       <img
                         alt={solution.title}
-                        src={`${backendUrl}/${solution.image}`}
+                        src={solution.image}
                         className="h-48 w-full object-cover rounded-t-lg"
                       />
                     }

@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
                 <div className="flex items-center space-x-4">
                     {/* Logo */}
                     <div className="relative w-20 h-20 bg-white rounded-full shadow-md overflow-hidden flex items-center justify-center transform transition-transform duration-300 hover:scale-110">
-                        <img src={`${backendUrl}/${logo.image}?v=${new Date().getTime()}`} alt="SM-Ed-Consultant" className="h-16 w-16 object-contain" />
+                        <img src={logo.image} alt="SM-Ed-Consultant" className="h-16 w-16 object-contain" />
                     </div>
                     {/* Company Name */}
                     <span className="text-lg font-extrabold text-white bg-clip-text text-transparent bg-white tracking-wider drop-shadow-md">
@@ -143,7 +143,7 @@ const Layout = ({ children }) => {
                     {/* Logo and Company Name */}
                     <div className="flex flex-col items-center md:items-start space-y-4">
                         <div className="flex items-center space-x-4">
-                            <img src={`${backendUrl}/${logo.image}?v=${new Date().getTime()}`} alt="SM-Ed-Consultant" className="h-16 w-16 object-contain" />
+                            <img src={logo.image} alt="SM-Ed-Consultant" className="h-16 w-16 object-contain" />
                             <span className="text-xl font-bold">SM Educational Consultant</span>
                         </div>
                         <p className="text-gray-400">Empowering Education with Expertise</p>
