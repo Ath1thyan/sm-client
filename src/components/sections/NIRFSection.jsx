@@ -1,14 +1,18 @@
-import React from 'react';
-import { nirfData } from '../../data/nirfData';
-import { Card, Row, Col } from 'antd';
-import { SettingOutlined, FlagOutlined, BookOutlined } from '@ant-design/icons';
+import React from "react";
+import { nirfData } from "../../data/nirfData";
+import { Card, Row, Col } from "antd";
+import { SettingOutlined, FlagOutlined, BookOutlined } from "@ant-design/icons";
 
 const NIRFSection = () => {
   return (
     <section className="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 mt-12">
       {/* Title and Description */}
-      <h2 className="text-4xl font-bold text-indigo-800 mb-6 text-center">{nirfData.title}</h2>
-      <p className="text-lg text-gray-700 mb-8 text-center">{nirfData.description}</p>
+      <h2 className="text-4xl font-bold text-indigo-800 mb-6 text-center">
+        {nirfData.title}
+      </h2>
+      <p className="text-lg text-gray-700 mb-8 text-center">
+        {nirfData.description}
+      </p>
 
       <Row gutter={[16, 16]}>
         {/* Objectives */}
@@ -17,9 +21,9 @@ const NIRFSection = () => {
             title="Objectives"
             bordered={false}
             className="rounded-lg transition-all mb-4"
-            headStyle={{ fontSize: '1.5rem', color: '#3B82F6' }}
+            headStyle={{ fontSize: "1.5rem", color: "#3B82F6" }}
           >
-            <ul >
+            <ul>
               {nirfData.objectives.map((objective, index) => (
                 <li key={index}>
                   <FlagOutlined className="text-blue-500 mr-2" />
@@ -33,10 +37,10 @@ const NIRFSection = () => {
         {/* Accreditation Process */}
         <Col xs={24} md={12}>
           <Card
-            title="Accreditation Process"
+            title="NIRF Process"
             bordered={false}
             className="rounded-lg transition-all"
-            headStyle={{ fontSize: '1.5rem', color: '#3B82F6' }}
+            headStyle={{ fontSize: "1.5rem", color: "#3B82F6" }}
           >
             <ol>
               {nirfData.accreditationProcess.map((process, index) => (
@@ -56,13 +60,15 @@ const NIRFSection = () => {
           title="Benefits"
           bordered={false}
           className="rounded-lg transition-all mb-4"
-          headStyle={{ fontSize: '1.5rem', color: '#3B82F6' }}
+          headStyle={{ fontSize: "1.5rem", color: "#3B82F6" }}
         >
           <Row gutter={[16, 16]}>
             {Object.keys(nirfData.benefits).map((key) => (
               <Col key={key} xs={24} sm={12} md={8}>
                 <div className="p-4 bg-white rounded-md transition-all">
-                  <h4 className="text-lg font-semibold text-indigo-700 mb-2 capitalize">{key}</h4>
+                  <h4 className="text-lg font-semibold text-indigo-700 mb-2 capitalize">
+                    {key}
+                  </h4>
                   <ul>
                     {nirfData.benefits[key].map((benefit, index) => (
                       <li key={index}>

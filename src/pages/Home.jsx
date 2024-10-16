@@ -18,19 +18,13 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const solutionsResponse = await axios.get(
-        `${backendUrl}/api/solutions`
-      );
-      const servicesResponse = await axios.get(
-        `${backendUrl}/api/services`
-      );
+      const solutionsResponse = await axios.get(`${backendUrl}/api/solutions`);
+      const servicesResponse = await axios.get(`${backendUrl}/api/services`);
       const testimonialsResponse = await axios.get(
         `${backendUrl}/api/testimonials`
       );
       const heroResponse = await axios.get(`${backendUrl}/api/hero`);
-      const bannerResponse = await axios.get(
-        `${backendUrl}/api/banner`
-      );
+      const bannerResponse = await axios.get(`${backendUrl}/api/banner`);
 
       setSolutions(solutionsResponse.data);
       setServices(servicesResponse.data);
@@ -44,7 +38,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="">
+      <div id="home" className="">
         {/* Carousel Banner Section */}
         <Carousel autoplay dots className="mb-12">
           {banner.map((img) => {
@@ -157,7 +151,7 @@ const Home = () => {
             </div>
           </section>
 
-          {/* Testimonials Section */}
+          {/* Testimonials Section
           <section className="my-12">
             <h2 className="text-3xl font-bold text-center mb-4 text-blue-600">
               Testimonials
@@ -192,7 +186,7 @@ const Home = () => {
                 </div>
               ))}
             </Carousel>
-          </section>
+          </section> */}
         </div>
       </div>
     </Layout>

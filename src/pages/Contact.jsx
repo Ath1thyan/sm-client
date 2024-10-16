@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { HiOutlineMail, HiPhone, HiLocationMarker } from 'react-icons/hi';
-import Layout from '../components/Layout';
-const backendUrl = 'https://backend-qzdy.onrender.com';
+import React, { useState } from "react";
+import { HiOutlineMail, HiPhone, HiLocationMarker } from "react-icons/hi";
+import Layout from "../components/Layout";
+const backendUrl = "https://backend-qzdy.onrender.com";
 const Contact = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    institutionName: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: '',
+    fullName: "",
+    institutionName: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
   });
-  const [submitStatus, setSubmitStatus] = useState('');
+  const [submitStatus, setSubmitStatus] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,76 +23,95 @@ const Contact = () => {
 
     // Prepare the data to be sent as JSON
     const formDataToSend = {
-        fullName: formData.fullName,
-        institutionName: formData.institutionName,
-        email: formData.email,
-        phone: formData.phone,
-        service: formData.service,
-        message: formData.message,
+      fullName: formData.fullName,
+      institutionName: formData.institutionName,
+      email: formData.email,
+      phone: formData.phone,
+      service: formData.service,
+      message: formData.message,
     };
 
     try {
-        const response = await fetch(`${backendUrl}/api/contacts`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',  // Set Content-Type to application/json
-            },
-            body: JSON.stringify(formDataToSend),  // Convert the data to JSON format
-        });
+      const response = await fetch(`${backendUrl}/api/contacts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Set Content-Type to application/json
+        },
+        body: JSON.stringify(formDataToSend), // Convert the data to JSON format
+      });
 
-        if (response.ok) {
-            setSubmitStatus('Submitted successfully!');
-            setFormData({
-                fullName: '',
-                institutionName: '',
-                email: '',
-                phone: '',
-                service: '',
-                message: '',
-            });
-        } else {
-            throw new Error('Submission failed.');
-        }
+      if (response.ok) {
+        setSubmitStatus("Submitted successfully!");
+        setFormData({
+          fullName: "",
+          institutionName: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Submission failed.");
+      }
     } catch (error) {
-        setSubmitStatus('Error submitting form. Please try again.');
+      setSubmitStatus("Error submitting form. Please try again.");
     }
 
     // Hide the popup after 3 seconds
     setTimeout(() => {
-        setSubmitStatus('');
+      setSubmitStatus("");
     }, 3000);
-};
+  };
 
-  
+  const handleClear = () => {
+    console.log(formData);
+
+    setFormData({
+      fullName: "",
+      institutionName: "",
+      email: "",
+      phone: "",
+      service: "",
+      message: "",
+    });
+  };
+
   return (
     <Layout>
       <div className="py-12 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Company Contact Details and Embedded Google Map */}
         <div>
-          <h1 className="text-4xl font-bold text-center mb-8 text-blue-700">Contact Us</h1>
+          <h1 className="text-4xl font-bold text-center mb-8 text-blue-700">
+            Contact Us
+          </h1>
 
           {/* Company Contact Details */}
           <div className="mb-12">
-            <h2 className="text-2xl font-semibold text-blue-600 mb-4">Company Contact Details</h2>
+            <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+              Contact Details
+            </h2>
             <div className="bg-blue-50 p-6 rounded-lg shadow-md">
               <p className="flex items-center text-gray-700 mb-2">
                 <HiOutlineMail className="mr-2 text-blue-600" />
-                <strong>Email:</strong> smeduconsultant@gmail.com
+                <strong>Email: </strong> smeduconsultant@gmail.com
               </p>
               <p className="flex items-center text-gray-700 mb-2">
                 <HiPhone className="mr-2 text-blue-600" />
-                <strong>Phone:</strong> +91 9597203784 / 9245664761
+                <strong>Phone: </strong> +91 9245664761
               </p>
               <p className="flex items-center text-gray-700 mb-2">
                 <HiLocationMarker className="mr-2 text-blue-600" />
-                <strong>Address:</strong> No.4, Ramani Nagar, Kadappa Road, Kolathur, Chennai - 600099
+                <strong>Address:</strong> No.4, Ramani Nagar, Kadappa Road,
+                Kolathur, Chennai - 600099
               </p>
             </div>
           </div>
 
           {/* Embedded Google Map */}
           <div className="mb-12">
-            <h2 className="text-2xl font-semibold text-blue-600 mb-4">Our Location</h2>
+            <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+              Our Location
+            </h2>
             <div className="w-full h-64 rounded-lg overflow-hidden shadow-md">
               <iframe
                 src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=13.130095,%2080.208825+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
@@ -109,10 +128,17 @@ const Contact = () => {
 
         {/* Contact Form */}
         <div>
-          <h2 className="text-2xl font-semibold text-blue-600 mb-4">Get in Touch</h2>
-          <form onSubmit={handleSubmit} className="bg-blue-50 p-6 rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+            Get in Touch
+          </h2>
+          <form
+            onSubmit={handleSubmit}
+            className="bg-blue-50 p-6 rounded-lg shadow-md"
+          >
             <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="fullName">Full Name</label>
+              <label className="block text-gray-700 mb-2" htmlFor="fullName">
+                Full Name
+              </label>
               <input
                 type="text"
                 id="fullName"
@@ -125,7 +151,12 @@ const Contact = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="institutionName">Institution Name</label>
+              <label
+                className="block text-gray-700 mb-2"
+                htmlFor="institutionName"
+              >
+                Institution Name
+              </label>
               <input
                 type="text"
                 id="institutionName"
@@ -138,7 +169,9 @@ const Contact = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="email">Email ID</label>
+              <label className="block text-gray-700 mb-2" htmlFor="email">
+                Email ID
+              </label>
               <input
                 type="email"
                 id="email"
@@ -151,7 +184,9 @@ const Contact = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="phone">Phone</label>
+              <label className="block text-gray-700 mb-2" htmlFor="phone">
+                Phone
+              </label>
               <input
                 type="tel"
                 id="phone"
@@ -164,7 +199,9 @@ const Contact = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="service">Select Service</label>
+              <label className="block text-gray-700 mb-2" htmlFor="service">
+                Select Service
+              </label>
               <div className="relative">
                 <select
                   id="service"
@@ -178,18 +215,27 @@ const Contact = () => {
                   <option value="naac">NAAC</option>
                   <option value="nba">NBA</option>
                   <option value="nirf">NIRF</option>
-                  <option value="foreignAccreditation">Foreign Accreditation</option>
+                  <option value="foreignAccreditation">Study Abroad</option>
                   <option value="mockInspection">Mock Inspection</option>
                   <option value="academicAudit">Academic Audit</option>
+                  <option value="academicAudit">Others</option>
                 </select>
                 <div className="absolute right-3 top-3 text-gray-600 pointer-events-none">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                  </svg>
                 </div>
               </div>
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="message">Message</label>
+              <label className="block text-gray-700 mb-2" htmlFor="message">
+                Message
+              </label>
               <textarea
                 id="message"
                 name="message"
@@ -201,12 +247,21 @@ const Contact = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300"
-            >
-              Submit
-            </button>
+            <div className="flex gap-20">
+              <button
+                // type="reset"
+                onClick={handleClear}
+                className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+              >
+                Reset
+              </button>
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+              >
+                Submit
+              </button>
+            </div>
           </form>
 
           {submitStatus && (
@@ -218,6 +273,6 @@ const Contact = () => {
       </div>
     </Layout>
   );
-}
+};
 
 export default Contact;
