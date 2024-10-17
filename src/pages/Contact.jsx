@@ -102,7 +102,7 @@ const Contact = () => {
               <p className="flex items-center text-gray-700 mb-2">
                 <HiLocationMarker className="mr-2 text-blue-600" />
                 <strong>Address:</strong> No.4, Ramani Nagar, Kadappa Road,
-                Kolathur, Chennai - 600099
+                Kolathur, Chennai - 600099, India
               </p>
             </div>
           </div>
@@ -215,10 +215,10 @@ const Contact = () => {
                   <option value="naac">NAAC</option>
                   <option value="nba">NBA</option>
                   <option value="nirf">NIRF</option>
-                  <option value="foreignAccreditation">Study Abroad</option>
+                  <option value="studyAbroad">Study Abroad</option>
                   <option value="mockInspection">Mock Inspection</option>
                   <option value="academicAudit">Academic Audit</option>
-                  <option value="academicAudit">Others</option>
+                  <option value="others">Others</option>
                 </select>
                 <div className="absolute right-3 top-3 text-gray-600 pointer-events-none">
                   <svg
