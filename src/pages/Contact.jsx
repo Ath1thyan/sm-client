@@ -109,7 +109,7 @@ const Contact = () => {
                 <HiLocationMarker className="mr-2 text-blue-600" />
                 <strong className="mr-2">Address:</strong>
                 <span className="ml-1">
-                  No.4, Ramani Nagar, Kadappa Road, Kolathur, Chennai - 600099,
+                  No.4, Ramani Nagar, Kadappa Road, Kolathur, Chennai-600099,
                   India
                 </span>
               </p>
