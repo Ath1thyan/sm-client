@@ -249,17 +249,17 @@ const Contact = () => {
 
             <div className="flex gap-20">
               <button
-                // type="reset"
-                onClick={handleClear}
-                className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300"
-              >
-                Reset
-              </button>
-              <button
                 type="submit"
                 className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300"
               >
                 Submit
+              </button>
+              <button
+                // type="reset"
+                onClick={handleClear}
+                className="w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition-colors duration-300"
+              >
+                Reset
               </button>
             </div>
           </form>
