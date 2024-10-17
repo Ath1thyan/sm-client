@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { useState } from "react";
 import ScrollToTop from "./components/ScrollToTop";
+import News from "./pages/News";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/audit" element={<Audit />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/newspage" element={<News />} />
       </Routes>
     </BrowserRouter>
   );

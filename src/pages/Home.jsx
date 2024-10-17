@@ -7,6 +7,7 @@ import axios from "axios";
 import { StarFilled } from "@ant-design/icons";
 import Layout from "../components/Layout";
 const backendUrl = "https://backend-qzdy.onrender.com";
+import { FaRegCircleDown } from 'react-icons/fa6';
 
 const Home = () => {
   const [solutions, setSolutions] = useState([]);
@@ -55,6 +56,17 @@ const Home = () => {
           })}
         </Carousel>
         <div className="container mx-auto">
+
+        <div className="flex flex-col items-end mt-3 mb-3">
+          <div className="flex flex-col items-center">
+          <div className="">
+      <FaRegCircleDown className="animate-bounce w-12 h-12 text-blue-600" />
+    </div>
+          <a href="/newspage" className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">News and Updates</a>
+          </div>
+        
+              
+            </div>
           {/* Introduction Section */}
           <section className="text-center bg-blue-100 p-8 border-0 rounded-sm">
             <h1 className="text-4xl font-bold text-blue-600 mb-4">

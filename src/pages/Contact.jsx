@@ -93,16 +93,25 @@ const Contact = () => {
             <div className="bg-blue-50 p-6 rounded-lg shadow-md">
               <p className="flex items-center text-gray-700 mb-2">
                 <HiOutlineMail className="mr-2 text-blue-600" />
-                <strong>Email: </strong> smeduconsultant@gmail.com
+                <strong className="mr-2">Email: </strong>{" "}
+                <a
+                  href="smeduconsultant@gmail.com"
+                  className="hover:text-gray-500"
+                >
+                  smeduconsultant@gmail.com
+                </a>
               </p>
               <p className="flex items-center text-gray-700 mb-2">
                 <HiPhone className="mr-2 text-blue-600" />
-                <strong>Phone: </strong> +91 9245664761
+                <strong className="mr-2">Phone: </strong> +91 9245664761
               </p>
-              <p className="flex items-center text-gray-700 mb-2">
+              <p className="flex items-start text-gray-700 mb-2">
                 <HiLocationMarker className="mr-2 text-blue-600" />
-                <strong>Address:</strong> No.4, Ramani Nagar, Kadappa Road,
-                Kolathur, Chennai - 600099, India
+                <strong className="mr-2">Address:</strong>
+                <span className="ml-1">
+                  No.4, Ramani Nagar, Kadappa Road, Kolathur, Chennai - 600099,
+                  India
+                </span>
               </p>
             </div>
           </div>

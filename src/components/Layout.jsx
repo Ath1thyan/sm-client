@@ -266,17 +266,14 @@ const Layout = ({ children }) => {
             <p>
               Email:{" "}
               <a
-                href="mailto:info@sm-educational.com"
+                href="smeduconsultant@gmail.com"
                 className="hover:text-gray-300"
               >
                 smeduconsultant@gmail.com
               </a>
             </p>
             <p>
-              Phone:{" "}
-              <a href="tel:+1234567890" className="hover:text-gray-300">
-                +91 9245664761
-              </a>
+              Phone:{"+91 9245664761"}
             </p>
           </div>
         </div>
