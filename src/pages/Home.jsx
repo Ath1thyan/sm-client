@@ -6,7 +6,7 @@ import { CheckCircleOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { StarFilled } from "@ant-design/icons";
 import Layout from "../components/Layout";
-const backendUrl = "https://backend-qzdy.onrender.com";
+const backendUrl = "http://43.204.211.1";
 import { FaRegCircleDown } from 'react-icons/fa6';
 
 const Home = () => {

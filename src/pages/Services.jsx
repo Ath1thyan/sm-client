@@ -3,7 +3,7 @@ import axios from "axios";
 import { Card, Row, Col } from 'antd';
 import { CheckCircleOutlined, BulbOutlined, StarOutlined } from '@ant-design/icons';
 import Layout from "../components/Layout";
-const backendUrl = "https://backend-qzdy.onrender.com";
+const backendUrl = "http://43.204.211.1";
 
 const Services = () => {
   const [serviceHero, setServiceHero] = useState({

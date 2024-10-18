@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HiOutlineMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import Layout from "../components/Layout";
-const backendUrl = "https://backend-qzdy.onrender.com";
+const backendUrl = "http://43.204.211.1";
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: "",

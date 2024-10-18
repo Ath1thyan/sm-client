@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FaUsers, FaHistory, FaHandshake } from "react-icons/fa";
 import { Card, Col, Row } from "antd";
 import Layout from "../components/Layout";
-const backendUrl = "https://backend-qzdy.onrender.com";
+const backendUrl = "http://43.204.211.1";
 
 
 const About = () => {
