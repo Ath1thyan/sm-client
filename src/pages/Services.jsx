@@ -3,7 +3,7 @@ import axios from "axios";
 import { Card, Row, Col } from 'antd';
 import { CheckCircleOutlined, BulbOutlined, StarOutlined } from '@ant-design/icons';
 import Layout from "../components/Layout";
-const backendUrl = "http://43.204.211.1";
+const backendUrl = "https://api.smeduconsultant.com";
 
 const Services = () => {
   const [serviceHero, setServiceHero] = useState({
@@ -37,7 +37,7 @@ const Services = () => {
       <div className="container mx-auto px-4 py-8">
       {/* Page Header */}
       <header className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+        <h1 className="text-4xl font-bold text-blue-700 mb-4">
           {serviceHero.title}
         </h1>
         <p className="text-lg text-gray-600">{serviceHero.description}</p>

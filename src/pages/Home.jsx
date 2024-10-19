@@ -6,7 +6,7 @@ import { CheckCircleOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { StarFilled } from "@ant-design/icons";
 import Layout from "../components/Layout";
-const backendUrl = "http://43.204.211.1";
+const backendUrl = "https://api.smeduconsultant.com";
 import { FaRegCircleDown } from 'react-icons/fa6';
 
 const Home = () => {

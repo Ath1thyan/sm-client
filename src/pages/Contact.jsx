@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HiOutlineMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import Layout from "../components/Layout";
-const backendUrl = "http://43.204.211.1";
+const backendUrl = "https://api.smeduconsultant.com";
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -95,7 +95,7 @@ const Contact = () => {
                 <HiOutlineMail className="mr-2 text-blue-600" />
                 <strong className="mr-2">Email: </strong>{" "}
                 <a
-                  href="smeduconsultant@gmail.com"
+                  href="mailto:smeduconsultant@gmail.com"
                   className="hover:text-gray-500"
                 >
                   smeduconsultant@gmail.com

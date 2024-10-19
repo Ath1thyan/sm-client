@@ -3,7 +3,7 @@ import { Card, Button } from "antd";
 import { FaPhone, FaEnvelope, FaGlobe, FaHome } from "react-icons/fa";
 import Layout from "../components/Layout";
 import logo from "../assets/mi.jpg"; // Ensure to use the correct path
-const backendUrl = "http://43.204.211.1";
+const backendUrl = "https://api.smeduconsultant.com";
 
 const Team = () => {
   const [team, setTeam] = useState([]);

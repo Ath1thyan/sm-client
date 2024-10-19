@@ -7,7 +7,7 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa"; // Import social media icons
-const backendUrl = "http://43.204.211.1";
+const backendUrl = "https://api.smeduconsultant.com";
 import axios from "axios";
 
 const Layout = ({ children }) => {
@@ -266,7 +266,7 @@ const Layout = ({ children }) => {
             <p>
               Email:{" "}
               <a
-                href="smeduconsultant@gmail.com"
+                href="mailto:smeduconsultant@gmail.com"
                 className="hover:text-gray-300"
               >
                 smeduconsultant@gmail.com

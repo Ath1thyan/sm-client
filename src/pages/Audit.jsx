@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Carousel } from "antd";
 import axios from "axios";
 import Layout from "../components/Layout";
-const backendUrl = "http://43.204.211.1";
+const backendUrl = "https://api.smeduconsultant.com";
 
 const Audit = () => {
   const [auditBanner, setAuditBanner] = useState([]);
