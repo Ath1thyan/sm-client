@@ -27,10 +27,10 @@ const About = () => {
       <section className="mb-12 space-y-3">
         {aboutDatas.map((aboutData) => (
           <div key={aboutData._id}>
-            <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+            <h2 className="text-2xl text-center font-semibold text-blue-600 mb-4">
               {aboutData.Heading}
             </h2>
-            <div className="bg-blue-50 p-6 rounded-lg shadow-md">
+            <div className="bg-blue-50 p-6 mb-6 text-justify rounded-lg shadow-md">
               {aboutData.format === 'points' ? (
                 <ul className="text-gray-700 leading-relaxed">
                   {aboutData.description.split('\n').map((point, index) => (

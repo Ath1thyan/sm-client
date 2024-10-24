@@ -78,15 +78,15 @@ const Audit = () => {
             </div>
           </section>
           <section className="mb-12 space-y-5 mt-3">
-            <p className="text-3xl font-bold  mb-8 text-blue-700">
+            <p className="text-3xl font-bold text-center mt-10  mb-8 text-blue-700">
               {auditSubHeading.title}
             </p>
             {auditDatas.map((aboutData) => (
               <div key={aboutData._id}>
-                <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+                <h2 className="text-2xl text-center font-semibold text-blue-600 mb-4">
                   {aboutData.Heading}
                 </h2>
-                <div className="bg-blue-50 p-6 rounded-lg shadow-md">
+                <div className="bg-blue-50 p-6 mb-8 rounded-lg shadow-md">
                   {aboutData.format === "points" ? (
                     <ul className="text-gray-700 leading-relaxed">
                       {aboutData.description.split("\n").map((point, index) => (
