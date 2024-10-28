@@ -8,10 +8,16 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 const backendUrl = "https://api.smeduconsultant.com";
+const backendUrll = "http://localhost:5000/api/footer";
 import axios from "axios";
 
 const Layout = ({ children }) => {
   const [logo, setLogo] = useState({ image: "" });
+  const [title, setTitle] = useState(null);
+  const [quickLink, setQuickLink] = useState([]);
+  const [connectLink, setConnectLink] = useState([]);
+  const [contactData, setContactData] = useState([]);
+
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -20,10 +26,46 @@ const Layout = ({ children }) => {
     const fetchData = async () => {
       const logoResponse = await axios.get(`${backendUrl}/api/logo`);
       setLogo(logoResponse.data);
+
+      const TitleResponce = await axios.get(`${backendUrl}/title`);
+      setTitle(TitleResponce.data);
+
+      const QuickLinkData = await axios.get(`${backendUrl}/links`);
+      setQuickLink(QuickLinkData.data);
+
+      const ConnectLinkData = await axios.get(`${backendUrl}/connect-links`);
+      const ConnectLinkDatas = [
+        {
+          name: ConnectLinkData.data[0].name,
+          link: ConnectLinkData.data[0].link,
+          icon: <FaFacebookF size={24} />,
+        },
+        {
+          name: ConnectLinkData.data[1].name,
+          link: ConnectLinkData.data[1].link,
+          icon: <FaLinkedinIn size={24} />,
+        },
+        {
+          name: ConnectLinkData.data[2].name,
+          link: ConnectLinkData.data[2].link,
+          icon: <FaInstagram size={24} />,
+        },
+        {
+          name: ConnectLinkData.data[3].name,
+          link: ConnectLinkData.data[3].link,
+          icon: <FaTwitter size={24} />,
+        },
+      ];
+      setConnectLink(ConnectLinkDatas);
+
+      const ContactData = await axios.get(`${backendUrl}/contact`);
+      setContactData(ContactData.data);
     };
 
     fetchData();
   }, []);
+
+  console.log(contactData);
 
   const getActiveClass = (path) =>
     location.pathname === path
@@ -36,11 +78,11 @@ const Layout = ({ children }) => {
       <div className="w-full bg-gradient-to-r from-blue-500 to-blue-500 p-4 flex items-center justify-between shadow-lg fixed top-0 left-0 right-0 z-50">
         {/* Logo Section */}
         <div className="flex items-center space-x-4">
-          <div className="relative w-24 h-24 bg-white rounded-full shadow-md overflow-hidden flex items-center justify-center transform transition-transform duration-300 hover:scale-110">
+          <div className="relative bg-white rounded-full shadow-md overflow-hidden flex items-center justify-center transform transition-transform duration-300 hover:scale-110 max-w-[96px] max-h-[96px] md:max-w-[80px] md:max-h-[80px] sm:max-w-[64px] sm:max-h-[64px] aspect-square">
             <img
               src={logo.image}
               alt="SM-Ed-Consultant"
-              className="h-20 w-20 object-contain"
+              className="object-contain w-full h-full"
               onClick={() => {
                 navigate("/");
               }}
@@ -174,17 +216,22 @@ const Layout = ({ children }) => {
               />
             </div>
             <span className="text-xl font-bold">
-              SM Educational Consultant
+              {title && title.length > 0 && title[0]?.title1}
             </span>
             <span className="text-xs text-white">
-              (STRIVING FOR EXCELLENCE IN ACCREDITATION)
+              {title && title.length > 0 && title[0]?.title2}
             </span>
           </div>
 
           {/* Quick Links */}
           <div className="flex flex-col items-center md:items-start space-y-2">
             <h2 className="text-lg font-semibold">Quick Links</h2>
-            <Link to="/" className="hover:text-gray-300">
+            {quickLink.map((data, index) => (
+              <Link key={index} to={data.link} className="hover:text-gray-300">
+                {data.name}
+              </Link>
+            ))}
+            {/* <Link to="/" className="hover:text-gray-300">
               Home
             </Link>
             <Link to="/services" className="hover:text-gray-300">
@@ -201,14 +248,20 @@ const Layout = ({ children }) => {
             </Link>
             <Link to="/contact" className="hover:text-gray-300">
               Contact
-            </Link>
+            </Link> */}
           </div>
 
           {/* Social Media */}
           <div className="flex flex-col items-center md:items-start space-y-2">
             <h2 className="text-lg font-semibold">Connect with Us</h2>
+
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank">
+              {connectLink.map((data, index) => (
+                <a key={index} href={data.link} target="_blank">
+                  {data.icon}
+                </a>
+              ))}
+              {/* <a href="https://facebook.com" target="_blank">
                 <FaFacebookF size={24} />
               </a>
               <a href="https://linkedin.com" target="_blank">
@@ -219,16 +272,25 @@ const Layout = ({ children }) => {
               </a>
               <a href="https://twitter.com" target="_blank">
                 <FaTwitter size={24} />
-              </a>
+              </a> */}
             </div>
-            <p>Chennai, India</p>
-            <p>Email: smeduconsultant@gmail.com</p>
-            <p>Phone: +91 9245664761</p>
+            <p>
+              {contactData && contactData.length > 0 && contactData[0].address}
+            </p>
+            <p>
+              Email:{" "}
+              {contactData && contactData.length > 0 && contactData[0].email}
+            </p>
+            <p>
+              Phone:{" "}
+              {contactData && contactData.length > 0 && contactData[0].PhoneNo}
+            </p>
           </div>
         </div>
 
         <div className="mt-8 border-t border-gray-700 pt-4 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} SM Educational Consultant. All rights reserved.
+          &copy; {new Date().getFullYear()} SM Educational Consultant. All
+          rights reserved.
         </div>
       </footer>
     </div>
