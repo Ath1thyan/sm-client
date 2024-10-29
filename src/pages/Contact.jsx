@@ -78,7 +78,7 @@ const Contact = () => {
 
   return (
     <Layout>
-      <div className="py-12 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="py-12 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mt-2 md:mt-7">
         {/* Company Contact Details and Embedded Google Map */}
         <div>
           <h1 className="text-4xl font-bold text-center mb-8 text-blue-700">
