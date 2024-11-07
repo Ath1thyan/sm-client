@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, Col, Row, Carousel, Button } from "antd";
+import { Card, Col, Row, Carousel, Button, Spin } from "antd";
 import { FaArrowRight } from "react-icons/fa";
 import { CheckCircleOutlined } from "@ant-design/icons";
 import axios from "axios";
@@ -15,6 +15,7 @@ const Home = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [hero, setHero] = useState({ title: "", description: "" });
   const [banner, setBanner] = useState([]);
+  const [loading, setLoading] = useState(true);
   // Sample carousel images - you can replace these with your actual image URLs
 
   useEffect(() => {
@@ -32,6 +33,7 @@ const Home = () => {
       setTestimonials(testimonialsResponse.data);
       setHero(heroResponse.data);
       setBanner(bannerResponse.data);
+      setLoading(false);
     };
 
     fetchData();
@@ -39,9 +41,16 @@ const Home = () => {
 
   return (
     <Layout>
-      <div id="home" className="">
+      <div id="home" className="relative mx-auto min-h-screen">
+
+        {/* Overlay loading spinner */}
+        {loading && (
+          <div className="absolute inset-0 bg-opacity-80 bg-white flex justify-center items-center z-50">
+            <Spin size="large" />
+          </div>
+        )}
         {/* Carousel Banner Section */}
-        <Carousel autoplay dots className="mb-12">
+        <Carousel autoplay dots className="mb-12 mt-4">
           {banner.map((img) => {
             console.log(img); // Log to check the image data
             return (

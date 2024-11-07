@@ -159,7 +159,7 @@ const Layout = ({ children }) => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-blue-600 text-white space-y-4 p-4">
+        <div className="md:hidden bg-blue-600 text-white space-y-4 p-4 fixed z-50 top-32 left-0 right-0">
           <Link
             to="/"
             className={`block px-4 py-2 ${getActiveClass("/")}`}

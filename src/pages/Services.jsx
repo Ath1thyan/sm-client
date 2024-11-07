@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Card, Row, Col } from 'antd';
+import { Card, Row, Col, Spin } from 'antd';
 import { CheckCircleOutlined, BulbOutlined, StarOutlined } from '@ant-design/icons';
 import Layout from "../components/Layout";
 const backendUrl = "https://api.smeduconsultant.com";
@@ -11,6 +11,7 @@ const Services = () => {
     description: "",
   });
   const [dataArray, setDataArray] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +25,7 @@ const Services = () => {
 
         setServiceHero(serviceHeroResponse.data);
         setDataArray(dataArrayResponse.data);
+        setLoading(false)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -34,7 +36,13 @@ const Services = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 relative min-h-screen mt-4">
+        {/* Overlay loading spinner */}
+        {loading && (
+          <div className="absolute inset-0 bg-opacity-80 bg-white flex justify-center items-center z-50">
+            <Spin size="large" />
+          </div>
+        )}
       {/* Page Header */}
       <header className="text-center mb-12">
         <h1 className="text-4xl font-bold text-blue-700 mb-4">

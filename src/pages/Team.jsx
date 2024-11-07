@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Button } from "antd";
+import { Card, Button, Spin } from "antd";
 import { FaPhone, FaEnvelope, FaGlobe, FaHome } from "react-icons/fa";
 import Layout from "../components/Layout";
 import logo from "../assets/mi.jpg"; // Ensure to use the correct path
@@ -7,6 +7,7 @@ const backendUrl = "https://api.smeduconsultant.com";
 
 const Team = () => {
   const [team, setTeam] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchTeam = async () => {
@@ -15,9 +16,12 @@ const Team = () => {
       if (response.ok) {
         const data = await response.json();
         setTeam(data);
+        setLoading(false);
       } else {
         message.error("Failed to fetch Team members");
       }
+
+      setLoading(false);
     };
 
     fetchTeam();
@@ -25,7 +29,13 @@ const Team = () => {
 
   return (
     <Layout>
-      <div className="py-8">
+      <div className="py-8 relative mx-auto min-h-screen mt-4">
+        {/* Overlay loading spinner */}
+        {loading && (
+          <div className="absolute inset-0 bg-opacity-80 bg-white flex justify-center items-center z-50">
+            <Spin size="large" />
+          </div>
+        )}
         <h1 className="text-4xl font-bold text-center mb-8 text-blue-700">
           Meet Our Team
         </h1>

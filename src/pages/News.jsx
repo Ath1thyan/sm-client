@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaUsers, FaHistory, FaHandshake } from "react-icons/fa";
-import { Card, Col, Row } from "antd";
+import { Card, Col, Row, Spin } from "antd";
 import Layout from "../components/Layout";
 const backendUrl = "https://api.smeduconsultant.com";
 
 
 const News = () => {
   const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const newsResponse = await axios.get(`${backendUrl}/api/news`);
       setNews(newsResponse.data);
+      setLoading(false);
     };
 
     fetchData();
@@ -20,7 +22,13 @@ const News = () => {
 
   return (
     <Layout>
-      <div className="py-12 px-6 max-w-6xl mx-auto">
+      <div className="py-12 px-6 max-w-6xl mx-auto relative min-h-screen mt-4">
+        {/* Overlay loading spinner */}
+        {loading && (
+          <div className="absolute inset-0 bg-opacity-80 bg-white flex justify-center items-center z-50">
+            <Spin size="large" />
+          </div>
+        )}
       <h1 className="text-4xl font-bold text-center mb-8 text-blue-700">
         News and Updates
       </h1>

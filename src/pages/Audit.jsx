@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Carousel } from "antd";
+import { Carousel, Spin } from "antd";
 import axios from "axios";
 import Layout from "../components/Layout";
 const backendUrl = "https://api.smeduconsultant.com";
@@ -14,6 +14,7 @@ const Audit = () => {
   });
   const [auditSubHeading, setAuditSubHeading] = useState({ title: "" });
   const [auditDatas, setAuditDatas] = useState([]);
+  const [loading, setLoading] = useState(true);
   // Sample carousel images - you can replace these with your actual image URLs
 
   useEffect(() => {
@@ -35,6 +36,7 @@ const Audit = () => {
       setAuditHero(auditHeroResponse.data);
       setAuditBanner(auditBannerResponse.data);
       setAuditSubHeading(auditSubHeadingResponse.data);
+      setLoading(false);
     };
 
     fetchData();
@@ -42,9 +44,15 @@ const Audit = () => {
 
   return (
     <Layout>
-      <div className="">
+      <div className="relative mx-auto min-h-screen">
+        {/* Overlay loading spinner */}
+        {loading && (
+          <div className="absolute inset-0 bg-opacity-80 bg-white flex justify-center items-center z-50">
+            <Spin size="large" />
+          </div>
+        )}
         {/* Carousel AuditBanner Section */}
-        <Carousel autoplay dots className="mb-12">
+        <Carousel autoplay dots className="mb-12 mt-4">
           {auditBanner.map((img) => {
             console.log(img); // Log to check the image data
             return (
