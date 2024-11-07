@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HiOutlineMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import Layout from "../components/Layout";
 const backendUrl = "https://api.smeduconsultant.com";
+// const backendUrl = "http://localhost:5005";
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: "",

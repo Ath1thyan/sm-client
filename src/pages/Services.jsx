@@ -4,6 +4,7 @@ import { Card, Row, Col, Spin } from 'antd';
 import { CheckCircleOutlined, BulbOutlined, StarOutlined } from '@ant-design/icons';
 import Layout from "../components/Layout";
 const backendUrl = "https://api.smeduconsultant.com";
+// const backendUrl = "http://localhost:5005";
 
 const Services = () => {
   const [serviceHero, setServiceHero] = useState({

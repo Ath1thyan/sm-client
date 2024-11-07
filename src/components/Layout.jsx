@@ -8,6 +8,7 @@ import {
   FaTwitter,
 } from "react-icons/fa"; // Import social media icons
 const backendUrl = "https://api.smeduconsultant.com";
+// const backendUrl = "http://localhost:5005";
 import axios from "axios";
 
 const Layout = ({ children }) => {

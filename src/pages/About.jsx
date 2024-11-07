@@ -4,6 +4,7 @@ import { FaUsers, FaHistory, FaHandshake } from "react-icons/fa";
 import { Card, Col, Row, Spin } from "antd";
 import Layout from "../components/Layout";
 const backendUrl = "https://api.smeduconsultant.com";
+// const backendUrl = "http://localhost:5005";
 
 
 const About = () => {

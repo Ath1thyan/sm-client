@@ -7,6 +7,7 @@ import axios from "axios";
 import { StarFilled } from "@ant-design/icons";
 import Layout from "../components/Layout";
 const backendUrl = "https://api.smeduconsultant.com";
+// const backendUrl = "http://localhost:5005";
 import { FaRegCircleDown } from "react-icons/fa6";
 
 const Home = () => {
