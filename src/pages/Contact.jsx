@@ -1,9 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HiOutlineMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import Layout from "../components/Layout";
 const backendUrl = "https://api.smeduconsultant.com";
 // const backendUrl = "http://localhost:5005";
 const Contact = () => {
+
+  {/*Get Contact Details*/}
+  const [contactDet, setContactDet] = useState({
+    email: "",
+    phno: "",
+    address: "",
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const contactResponse = await axios.get(`${backendUrl}/api/contactDet`);
+
+      setContactDet(contactResponse.data);
+    };
+
+    fetchData();
+  }, []);
+
+  {/*Get In Touch*/}
   const [formData, setFormData] = useState({
     fullName: "",
     institutionName: "",
@@ -96,22 +115,21 @@ const Contact = () => {
                 <HiOutlineMail className="mr-2 text-blue-600" />
                 <strong className="mr-2">Email: </strong>{" "}
                 <a
-                  href="mailto:smeduconsultant@gmail.com"
+                  href={`mailto:${contactDet.email}`}
                   className="hover:text-gray-500"
                 >
-                  smeduconsultant@gmail.com
+                  {contactDet.email}
                 </a>
               </p>
               <p className="flex items-center text-gray-700 mb-2">
                 <HiPhone className="mr-2 text-blue-600" />
-                <strong className="mr-2">Phone: </strong> +91 9245664761
+                <strong className="mr-2">Phone: </strong> {contactDet.phno}
               </p>
               <p className="flex items-start text-gray-700 mb-2">
                 <HiLocationMarker className="mr-2 text-blue-600" />
                 <strong className="mr-2">Address:</strong>
                 <span className="ml-1">
-                  No.4, Ramani Nagar, Kadappa Road, Kolathur, Chennai-600099,
-                  India
+                  {contactDet.address}
                 </span>
               </p>
             </div>
