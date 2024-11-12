@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { HiOutlineMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import Layout from "../components/Layout";
+import axios from "axios";
 const backendUrl = "https://api.smeduconsultant.com";
 // const backendUrl = "http://localhost:5005";
 const Contact = () => {
 
   {/*Get Contact Details*/}
   const [contactDet, setContactDet] = useState({
+    address: "",
     email: "",
     phno: "",
-    address: "",
   });
 
   useEffect(() => {
