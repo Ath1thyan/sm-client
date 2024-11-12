@@ -103,7 +103,7 @@ const Layout = ({ children }) => {
         </div>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex items-center space-x-6 text-white font-medium">
+        <div className="hidden lg:flex items-center space-x-6 text-white font-medium">
 
           <Link to="/" className={`px-2 py-1 ${getActiveClass("/")}`}>
             Home
@@ -132,7 +132,7 @@ const Layout = ({ children }) => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center">
+        <div className="lg:hidden flex items-center">
           <button
             className="text-white focus:outline-none"
             id="mobile-menu-button"
@@ -160,7 +160,7 @@ const Layout = ({ children }) => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-blue-600 text-white space-y-4 p-4 fixed z-50 top-32 left-0 right-0">
+        <div className="lg:hidden bg-blue-600 text-white space-y-4 p-4 fixed z-50 top-32 left-0 right-0">
           <Link
             to="/"
             className={`block px-4 py-2 ${getActiveClass("/")}`}
@@ -242,7 +242,7 @@ const Layout = ({ children }) => {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex flex-col items-center md:items-start space-y-2">
+          <div className="flex flex-col items-center lg:items-start text-center md:text-start space-y-2">
             <h2 className="text-lg font-semibold">Quick Links</h2>
             {links.map((linkData) => (
             <div key={linkData._id}>
@@ -254,7 +254,7 @@ const Layout = ({ children }) => {
           </div>
 
           {/* Social Media & Contact Info */}
-          <div className="flex flex-col items-center md:items-start space-y-2">
+          <div className="flex flex-col items-center lg:items-start text-center md:text-left space-y-2">
             <h2 className="text-lg font-semibold">Connect with Us</h2>
             {SMLinks.map((sml) => (
               <div className="flex space-x-4" key={sml._id}>
