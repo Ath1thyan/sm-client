@@ -81,7 +81,7 @@ const Team = () => {
                     <FaHome className="mr-2 text-blue-600" />
                     {member.address}
                   </p>
-                  <p className="flex items-center text-gray-800">
+                  {/* <p className="flex items-center text-gray-800">
                     <FaGlobe className="mr-2 text-blue-600" />
                     <a
                       href={member.website}
@@ -91,7 +91,7 @@ const Team = () => {
                     >
                       {member.website}
                     </a>
-                  </p>
+                  </p> */}
                 </div>
                 <a href={"mailto:smeduconsultant@gmail.com"}>
                   <Button
