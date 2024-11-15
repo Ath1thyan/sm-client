@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Button, Spin } from "antd";
-import { FaPhone, FaEnvelope, FaGlobe, FaHome } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaGlobe, FaUser } from "react-icons/fa";
 import Layout from "../components/Layout";
 import logo from "../assets/mi.jpg"; // Ensure to use the correct path
 // const backendUrl = "http://localhost:5005";
@@ -78,10 +78,10 @@ const Team = () => {
                     </a>
                   </p>
                   <p className="flex items-center text-gray-800">
-                    <FaHome className="mr-2 text-blue-600" />
+                    <FaUser className="mr-2 text-blue-600" />
                     {member.address}
                   </p>
-                  <p className="flex items-center text-gray-800">
+                  {/* <p className="flex items-center text-gray-800">
                     <FaGlobe className="mr-2 text-blue-600" />
                     <a
                       href={member.website}
@@ -91,7 +91,7 @@ const Team = () => {
                     >
                       {member.website}
                     </a>
-                  </p>
+                  </p> */}
                 </div>
                 <a href={"mailto:smeduconsultant@gmail.com"}>
                   <Button

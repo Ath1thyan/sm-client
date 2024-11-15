@@ -112,6 +112,13 @@ const Contact = () => {
               Contact Details
             </h2>
             <div className="bg-blue-50 p-6 rounded-lg shadow-md">
+<p className="flex items-start text-gray-700 mb-2">
+                <HiLocationMarker className="mr-2 text-blue-600" />
+                <strong className="mr-2">Address:</strong>
+                <span className="ml-1">
+                  {contactDet.address}
+                </span>
+              </p>
               <p className="flex items-center text-gray-700 mb-2">
                 <HiOutlineMail className="mr-2 text-blue-600" />
                 <strong className="mr-2">Email: </strong>{" "}
@@ -125,13 +132,6 @@ const Contact = () => {
               <p className="flex items-center text-gray-700 mb-2">
                 <HiPhone className="mr-2 text-blue-600" />
                 <strong className="mr-2">Phone: </strong> {contactDet.phno}
-              </p>
-              <p className="flex items-start text-gray-700 mb-2">
-                <HiLocationMarker className="mr-2 text-blue-600" />
-                <strong className="mr-2">Address:</strong>
-                <span className="ml-1">
-                  {contactDet.address}
-                </span>
               </p>
             </div>
           </div>
