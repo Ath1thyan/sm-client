@@ -64,6 +64,21 @@ const Layout = ({ children }) => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false); // Close the menu when scrolling
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Navbar */}
