@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from "react-icons/fa"; 
 import axios from "axios";
+import './LayoutStyle.css' 
 
 const backendUrl = "https://api.smeduconsultant.com";
 
@@ -15,6 +16,7 @@ const Layout = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   // Ref to track the position of the hamburger icon
+  const mobileMenuRef = useRef(null);
   const hamburgerRef = useRef(null);
   const [menuPosition, setMenuPosition] = useState({ top: 0 });
 
@@ -79,6 +81,21 @@ const Layout = ({ children }) => {
     };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    if (mobileMenuRef.current) {
+      const menuHeight = mobileMenuRef.current.scrollHeight;
+      const viewportHeight = window.innerHeight - 128;
+
+      // If the menu is taller than the viewport, make it scrollable
+      if (menuHeight > viewportHeight) {
+        mobileMenuRef.current.style.maxHeight = `${viewportHeight}px`; // Adjust as needed
+        mobileMenuRef.current.style.overflowY = 'auto'; // Enable vertical scrolling
+      } else {
+        mobileMenuRef.current.style.maxHeight = 'none'; // No scroll needed
+      }
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Navbar */}
@@ -126,7 +143,8 @@ const Layout = ({ children }) => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div
-          className="lg:hidden bg-blue-600 text-white space-y-4 p-4 absolute z-50 mt-12 left-0 right-0"
+          ref={mobileMenuRef}
+          className="lg:hidden bg-blue-600 text-white space-y-4 p-4 absolute z-50 mt-12 left-0 right-0 mobile-menu"
           style={{ top: `${menuPosition.top}px` }}  // Position the menu based on where the hamburger button was clicked
         >
           <Link to="/" className={`block px-4 py-2 ${getActiveClass("/")}`} onClick={() => setIsMobileMenuOpen(false)}>Home</Link>

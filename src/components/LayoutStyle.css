@@ -1,0 +1,10 @@
+/* Hide the scrollbar but keep the scroll functionality */
+.mobile-menu {
+    -ms-overflow-style: none;  /* Hide scrollbar in Internet Explorer 10+ */
+    scrollbar-width: none;      /* Hide scrollbar in Firefox */
+  }
+  
+  .mobile-menu::-webkit-scrollbar {
+    display: none;  /* Hide scrollbar in Chrome, Safari, and newer Edge */
+  }
+  
